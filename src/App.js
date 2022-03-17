@@ -15,7 +15,6 @@ function App() {
                <Route path='/about' element={<About/>}></Route>
                <Route path='/profile' element={<Profile/>}></Route>
                <Route path='/registration' element={<Registration/>}></Route>
-               <Route path='/dialogtest/id' element={< Dialogtest/>}></Route>
                <Route path='/login' element={<Login/>}></Route>
            </Routes>
     </div>

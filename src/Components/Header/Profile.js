@@ -1,4 +1,5 @@
 import Header from "./Header";
+import * as React from 'react';
 import { useState, useEffect } from 'react'
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -15,8 +16,13 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
 import { TextField } from '@mui/material';
-import { NavLink } from 'react-router-dom'
-import axios from 'axios';
+import Slide from '@mui/material/Slide';
+import DialogContentText from '@mui/material/DialogContentText';
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
+
 const columns = [
     { id: 'name', label: 'Name', minWidth: 170 },
     { id: 'email', label: 'Email', minWidth: 100 }]
@@ -34,12 +40,11 @@ function Profile() {
     const [Email, setEmail] = useState(null)
 
     const [showDialog, setShowDialog] = useState(false)
+    const [showYesNo, setYesNoDialog] = useState(false)
+    const [showYesNoDelete, setYesNoDeleteDialog] = useState(false)
 
-    function openOption(gettingValue) {
+    const [deleteRocord, setDeleteRecord] = useState()
 
-        console.log(gettingValue);
-
-    }
     function closeOption() {
         setShowDialog(false)
     }
@@ -50,8 +55,6 @@ function Profile() {
             results.json().then((res) => {
                 setUserdata(res);
             })
-
-
         })
     }
     useEffect(() => {
@@ -71,19 +74,8 @@ function Profile() {
         setPage(0);
     };
 
-    function sendRecord(ids) {
-        fetch(`https://retoolapi.dev/SdvQQz/data/${ids}`,
-            {
-                method: 'DELETE',
-            }).then((result) => {
-                result.json().then((res) => {
-                    console.log(res)
-                    fetchData();
-                }
-                )
-            })
-    }
-    const updateRecord=(ids)=> {
+
+    const updateRecord = (ids) => {
         console.log(ids)
 
         fetch(`https://retoolapi.dev/SdvQQz/data/${ids}`).then((result) => {
@@ -100,8 +92,11 @@ function Profile() {
     }
 
     function changeData() {
+        setShowDialog(false)
+        setYesNoDialog(true);
+    }
 
-
+    const handleUpdate = () => {
         let sendAbleData = { ...newUsers, Name, Mobileno, Email };
         console.log(sendAbleData);
 
@@ -120,11 +115,30 @@ function Profile() {
                 }
                 )
             })
+        console.log("updaetd");
         setShowDialog(false)
-
-
+        setYesNoDialog(false)
     }
 
+    function sendRecord(ids) {
+        console.log("delete",ids)
+        setYesNoDeleteDialog(true);
+        setDeleteRecord(ids)
+    }
+    const handleDelete = () => {
+
+        fetch(`https://retoolapi.dev/SdvQQz/data/${deleteRocord}`,
+            {
+                method: 'DELETE',
+            }).then((result) => {
+                result.json().then((res) => {
+                    console.log(res)
+                    fetchData();
+                    setYesNoDeleteDialog(false);
+                }
+                )
+            })
+    }
     return (
         <div>
             <Header />
@@ -182,6 +196,31 @@ function Profile() {
                 <DialogActions>
                     <Button onClick={changeData}>Update</Button>
                     <Button onClick={closeOption}>Close</Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                open={showYesNo}
+                TransitionComponent={Transition}
+                keepMounted
+
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Are you Searisously Want to Update User Record"}</DialogTitle>
+                <DialogActions>
+                    <Button onClick={handleUpdate}>Yes</Button>
+                    <Button onClick={() => { setYesNoDialog(false) }}>No</Button>
+                </DialogActions>
+            </Dialog>
+            <Dialog
+                open={showYesNoDelete}
+                TransitionComponent={Transition}
+                keepMounted
+                aria-describedby="alert-dialog-slide-description"
+            >
+                <DialogTitle>{"Are you Searisously Want to DELETE User Record"}</DialogTitle>
+                <DialogActions>
+                    <Button onClick={handleDelete}>Yes</Button>
+                    <Button onClick={() => { setYesNoDeleteDialog(false) }}>No</Button>
                 </DialogActions>
             </Dialog>
         </div>

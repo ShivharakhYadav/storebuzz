@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
-import { purple } from '@mui/material/colors';
+import { red,purple,grey,green } from '@mui/material/colors';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 // import { makeStyles } from '@mui/styles';
 import { Container } from '@mui/material'
@@ -19,170 +19,127 @@ import { Container } from '@mui/material'
 //     }
 // }))
 import { styled } from '@mui/material/styles';
-const BootstrapButton = styled(Button)({
-    boxShadow: 'none',
-    textTransform: 'none',
-    fontSize: 16,
-    padding: '6px 12px',
-    border: '1px solid',
-    lineHeight: 1.5,
-    backgroundColor: '#0063cc',
-    borderColor: '#0063cc',
-    fontFamily: [
-      '-apple-system',
-      'BlinkMacSystemFont',
-      '"Segoe UI"',
-      'Roboto',
-      '"Helvetica Neue"',
-      'Arial',
-      'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(','),
-    '&:hover': {
-      backgroundColor: '#0069d9',
-      borderColor: '#0062cc',
-      boxShadow: 'none',
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#0062cc',
-      borderColor: '#005cbf',
-    },
-    '&:focus': {
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-    },
-  });
+
 
   const ColorButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.getContrastText(purple[500]),
-    backgroundColor: purple[500],
+    color: theme.palette.getContrastText(green[500]),
+    backgroundColor: green[500],
     '&:hover': {
       backgroundColor: purple[700],
     },
+    borderRadius:20
   }));
 function CardsItems() {
     // const classes = useStyles();
     return (
         <Container>
+            
             <Grid container justifyContent={"space-between"}>
                 <Grid item >
                     <Box pt={3}>
-                        <Paper >
-                            <Card sx={{ maxWidth: 200 }}>
+                        <Paper>
+                            <Card sx={{ maxWidth: 342,height:370, marginTop:"10px" }}>
                                 <CardActionArea>
-                                    <CardMedia
+                                    <CardMedia sx={{marginTop:"",height:250,width:250 }}
                                         component="img"
                                         height="140"
-                                        image="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                                        image="https://rukminim1.flixcart.com/image/612/612/kelptow0/cases-covers/flip-cover/h/j/d/kam-z1-pro-original-imafv8xghpgzc7hr.jpeg?q=70"
                                         alt="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent sx={{height:60}}>
+                                        <Typography color="text.secondary" sx={{height:20}}>Goldstar</Typography>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            Lizard
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                                            species, ranging across all continents except Antarctica
+                                            ₹ 59,990 
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                <ColorButton><Button size="small" color="primary"><ShoppingCartOutlinedIcon/>Add To Cart</Button></ColorButton>
-                                    <Button size="small">Learn More</Button>
+                                <ColorButton><Button size="small" style={{color:'white'}}><ShoppingCartOutlinedIcon/>Add To Cart</Button></ColorButton>
+
                                 </CardActions>
                             </Card>    
                         </Paper>
                     </Box>
                 </Grid>
-                <Grid item>
+                <Grid item >
                     <Box pt={3}>
                         <Paper >
-                            <Card sx={{ maxWidth: 200 }}>
+                            <Card sx={{ maxWidth: 342,height:370, marginTop:"10px" }}>
                                 <CardActionArea>
-                                    <CardMedia
+                                    <CardMedia sx={{marginTop:"",height:250,width:250 }}
                                         component="img"
                                         height="140"
-                                        image="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                                        image="https://rukminim1.flixcart.com/image/580/696/kw2fki80/shoe/p/j/4/-original-imag8tzbjxm4what.jpeg?q=50"
                                         alt="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent sx={{height:60}}>
+                                        <Typography color="text.secondary" sx={{height:20}}>Goldstar</Typography>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            Lizard
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                                            species, ranging across all continents except Antarctica
+                                            ₹ 15,000 
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small">Share</Button>
-                                    <Button size="small">Learn More</Button>
+                                <ColorButton><Button size="small" style={{color:'white'}}><ShoppingCartOutlinedIcon/>Add To Cart</Button></ColorButton>
+
                                 </CardActions>
                             </Card>    
                         </Paper>
                     </Box>
                 </Grid>
-                <Grid item>
+                <Grid item >
                     <Box pt={3}>
                         <Paper >
-                            <Card sx={{ maxWidth: 200 }}>
+                            <Card sx={{ maxWidth: 342,height:370, marginTop:"10px" }}>
                                 <CardActionArea>
-                                    <CardMedia
+                                    <CardMedia sx={{marginTop:"",height:250,width:250 }}
                                         component="img"
                                         height="140"
-                                        image="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                                        image="https://rukminim1.flixcart.com/image/580/696/jn4x47k0/backpack/g/3/v/stanza-11894-backpack-wildcraft-original-imaf7qdcyjehwb6h.jpeg?q=50"
                                         alt="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent sx={{height:60}}>
+                                        <Typography color="text.secondary" sx={{height:20}}>Goldstar</Typography>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            Lizard
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                                            species, ranging across all continents except Antarctica
+                                            ₹ 13,000
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small">Share</Button>
-                                    <Button size="small">Learn More</Button>
+                                <ColorButton><Button size="small" style={{color:'white'}}><ShoppingCartOutlinedIcon/>Add To Cart</Button></ColorButton>
+
                                 </CardActions>
                             </Card>    
                         </Paper>
                     </Box>
                 </Grid>
-                <Grid item>
+                <Grid item >
                     <Box pt={3}>
                         <Paper >
-                            <Card sx={{ maxWidth: 200 }}>
+                            <Card sx={{ maxWidth: 342,height:370, marginTop:"10px" }}>
                                 <CardActionArea>
-                                    <CardMedia
+                                    <CardMedia sx={{marginTop:"",height:250,width:250}}
                                         component="img"
                                         height="140"
-                                        image="https://upload.wikimedia.org/wikipedia/commons/9/9a/Gull_portrait_ca_usa.jpg"
+                                        image="https://rukminim1.flixcart.com/image/416/416/ksez24w0/computer/v/b/y/rmnb1001-thin-and-light-laptop-realme-original-imag5zhgw27k4tbb.jpeg?q=70"
                                         alt="green iguana"
                                     />
-                                    <CardContent>
+                                    <CardContent sx={{height:60}}>
+                                        <Typography color="text.secondary" sx={{height:20}}>Goldstar</Typography>
                                         <Typography gutterBottom variant="h5" component="div">
-                                            Lizard
-                                        </Typography>
-                                        <Typography variant="body2" color="text.secondary">
-                                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                                            species, ranging across all continents except Antarctica
+                                            ₹ 20,000
                                         </Typography>
                                     </CardContent>
                                 </CardActionArea>
                                 <CardActions>
-                                    <Button size="small">Share</Button>
-                                    <Button size="small">Learn More</Button>
+                                <ColorButton><Button size="small" style={{color:'white'}}><ShoppingCartOutlinedIcon/>Add To Cart</Button></ColorButton>
+
                                 </CardActions>
                             </Card>    
                         </Paper>
                     </Box>
                 </Grid>
+                
             </Grid>
         </Container>
     )
