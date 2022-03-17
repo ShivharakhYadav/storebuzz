@@ -6,7 +6,7 @@ import Profile from './Components/Header/Profile';
 import Registration from './Components/Registration/Registration';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Dialogtest from './Components/Dialogtest';
-
+import Login from './Components/Authentication/Login'
 function App() {
   return (
     <div>
@@ -16,6 +16,7 @@ function App() {
                <Route path='/profile' element={<Profile/>}></Route>
                <Route path='/registration' element={<Registration/>}></Route>
                <Route path='/dialogtest/id' element={< Dialogtest/>}></Route>
+               <Route path='/login' element={<Login/>}></Route>
            </Routes>
     </div>
   );

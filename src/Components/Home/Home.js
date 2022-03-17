@@ -3,7 +3,6 @@ import Header from "../Header/Header";
 import Registration from "../Registration/Registration";
 import {Carousel} from 'react-bootstrap'
 import './Crousel.css'
-import Cards from "../Card/Cards";
 
 function Home() {
     return (

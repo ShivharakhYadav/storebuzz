@@ -4,18 +4,19 @@ import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 function Registration() {
-    const [name, setUname] = useState(null);
-    const [email, setEmail] = useState(null)
-    const [userPassword, setUserpassword] = useState(null)
+    const [Name, setUname] = useState(null);
+    const [Mobileno, setMobileno] = useState(null);
+    const [Email, setEmail] = useState(null)
+    const [UserPassword, setUserpassword] = useState(null)
 
 
     const history = useNavigate();
 
     function SendDate() {
-        let sendAbleData = ({ name, email, userPassword });
+        let sendAbleData = ({ Name, Mobileno,Email, UserPassword });
         console.log(sendAbleData);
 
-        let setLocalStorage = fetch("https://retoolapi.dev/0hCiJE/data",
+        let setLocalStorage = fetch("https://retoolapi.dev/SdvQQz/data",
             {
                 method: 'POST',
                 headers: {
@@ -38,6 +39,7 @@ function Registration() {
         <div>
             <h1>Register Here</h1>
             <TextField id="standard-basic" label="name" variant="standard" onChange={(e) => setUname(e.target.value)} /><br /><br />
+            <TextField id="standard-basic" label="mobileno" variant="standard" onChange={(e) => setMobileno(e.target.value)} /><br /><br />
             <TextField id="standard-basic" label="email" variant="standard" onChange={(e) => setEmail(e.target.value)} /><br /><br />
             <TextField id="standard-basic" label="password" variant="standard" type="password" onChange={(e) => setUserpassword(e.target.value)} /><br /><br />
             <Button variant="contained" onClick={SendDate} endIcon={<SendIcon />}>

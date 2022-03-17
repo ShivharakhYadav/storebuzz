@@ -6,11 +6,9 @@ import Button from '@mui/material/Button'
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TablePagination from '@mui/material/TablePagination';
+import { TableHead, TablePagination } from '@mui/material';
 import TableRow from '@mui/material/TableRow';
 import userEvent from "@testing-library/user-event";
-import { ListItemSecondaryAction } from "@mui/material";
 import Registration from "../Registration/Registration";
 import Dialog from '@mui/material/Dialog';
 import DialogTitle from '@mui/material/DialogTitle';
@@ -24,28 +22,30 @@ const columns = [
     { id: 'email', label: 'Email', minWidth: 100 }]
 
 
-
-
 function Profile() {
     const [usersData, setUserdata] = useState([]);
     const [totalRecords, setTotalRecords] = useState(0);
 
 
-  
+    const [personalData, setPersonalData] = useState([])
+    const [newUsers, setNewUser] = useState(null);
+    const [Name, setUname] = useState(null);
+    const [Mobileno, setMobileno] = useState(null);
+    const [Email, setEmail] = useState(null)
 
     const [showDialog, setShowDialog] = useState(false)
 
     function openOption(gettingValue) {
-        setShowDialog(true)
+
         console.log(gettingValue);
-  
+
     }
     function closeOption() {
         setShowDialog(false)
     }
 
-    useEffect(() => {
-        fetch("https://retoolapi.dev/0hCiJE/data").then((results) => {
+    function fetchData() {
+        fetch("https://retoolapi.dev/SdvQQz/data").then((results) => {
             console.log(results)
             results.json().then((res) => {
                 setUserdata(res);
@@ -53,6 +53,9 @@ function Profile() {
 
 
         })
+    }
+    useEffect(() => {
+        fetchData();
     }, [])
 
     // ------------------------------------
@@ -68,7 +71,59 @@ function Profile() {
         setPage(0);
     };
 
-   
+    function sendRecord(ids) {
+        fetch(`https://retoolapi.dev/SdvQQz/data/${ids}`,
+            {
+                method: 'DELETE',
+            }).then((result) => {
+                result.json().then((res) => {
+                    console.log(res)
+                    fetchData();
+                }
+                )
+            })
+    }
+    const updateRecord=(ids)=> {
+        console.log(ids)
+
+        fetch(`https://retoolapi.dev/SdvQQz/data/${ids}`).then((result) => {
+            result.json().then((res) => {
+                console.log("personal results", res)
+                setPersonalData(res);
+                setNewUser(res);
+
+            }
+            )
+        })
+        setShowDialog(true)
+
+    }
+
+    function changeData() {
+
+
+        let sendAbleData = { ...newUsers, Name, Mobileno, Email };
+        console.log(sendAbleData);
+
+        fetch(`https://retoolapi.dev/SdvQQz/data/${newUsers.id}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(sendAbleData)
+            }).then((result) => {
+                result.json().then((res) => {
+                    console.log(res)
+                    fetchData();
+                }
+                )
+            })
+        setShowDialog(false)
+
+
+    }
 
     return (
         <div>
@@ -94,10 +149,11 @@ function Profile() {
                         <TableBody>
                             {usersData.map((items, i) => {
                                 return <TableRow key={i}>
-                                    <TableCell>{items.name}</TableCell>
-                                    <TableCell>{items.email}</TableCell>
-                                    <TableCell><NavLink to={"dialogtest/" + items.id}><Button>Update</Button></NavLink></TableCell>
-                                    <TableCell><Button >Delete</Button></TableCell>
+                                    <TableCell>{items.Name}</TableCell>
+                                    <TableCell>{items.Email}</TableCell>
+                                    <TableCell>{items.Mobileno}</TableCell>
+                                    <TableCell><Button onClick={() => updateRecord(items.id)}>Update</Button></TableCell>
+                                    <TableCell><Button onClick={() => sendRecord(items.id)}>Delete</Button></TableCell>
                                 </TableRow>
                             })
 
@@ -119,13 +175,12 @@ function Profile() {
             <Dialog open={showDialog}>
                 <DialogTitle>Register Here</DialogTitle>
                 <DialogContent dividers>
-                    <TextField id="outlined-basic" label="Name" variant="outlined" /><br /><br />
-                    <TextField id="outlined-basic" label="Email" variant="outlined" /><br /><br />
-                    <TextField id="outlined-basic" label="Password" variant="outlined" />
-
+                    <TextField id="outlined-basic" label="Name" color="secondary" placeholder={personalData.Name} onChange={(e) => setUname(e.target.value)} focused /><br /><br />
+                    <TextField id="outlined-basic" label="Mobileno" color="secondary" placeholder={personalData.Mobileno} onChange={(e) => setMobileno(e.target.value)} variant="outlined" focused /><br /><br />
+                    <TextField id="outlined-basic" label="Email" color="secondary" placeholder={personalData.Email} variant="outlined" onChange={(e) => setEmail(e.target.value)} focused />
                 </DialogContent>
                 <DialogActions>
-                    <Button>Update</Button>
+                    <Button onClick={changeData}>Update</Button>
                     <Button onClick={closeOption}>Close</Button>
                 </DialogActions>
             </Dialog>
