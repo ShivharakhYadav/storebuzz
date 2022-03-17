@@ -4,10 +4,13 @@ import Registration from "../Registration/Registration";
 import {Carousel} from 'react-bootstrap'
 import './Crousel.css'
 
+import CardsItems from "../Cards/CardsItems";
+
+
 function Home() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             {/* <Cards/>
             <Cards/>
             <Cards/> */}
@@ -48,6 +51,7 @@ function Home() {
                     </Carousel.Caption>
                 </Carousel.Item>
             </Carousel> */}
+            <CardsItems/>
         </div>
     )
 }
