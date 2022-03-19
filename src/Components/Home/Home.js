@@ -6,14 +6,18 @@ import './Crousel.css'
 
 import CardsItems from "../Cards/CardsItems";
 import Profile from "../Header/Profile";
-
+import BasicTable from "../testingComponents/BasicTable";
+import SearchUser from '../SearchUsers'
 
 function Home() {
     return (
         <div>
-            <Header />
+            {/* <Header /> */}
             {/* <Profile/> */}
-            <CardsItems/>
+            {/* <CardsItems/> */}
+            {/* <Dialogtest /> */}
+            {/* <BasicTable/> */}
+            <SearchUser/>
         </div>
     )
 }

@@ -74,15 +74,16 @@ function Profile() {
         setPage(0);
     };
 
-
+    // new Date().getTime().toString().slice(8)
     const updateRecord = (ids) => {
-        console.log(ids)
+        console.log("Type of id is",typeof(ids));
 
         fetch(`https://retoolapi.dev/SdvQQz/data/${ids}`).then((result) => {
             result.json().then((res) => {
                 console.log("personal results", res)
                 setPersonalData(res);
                 setNewUser(res);
+                console.log("TypeofNme",typeof(res.Name))
 
             }
             )
