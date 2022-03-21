@@ -9,6 +9,7 @@ import Profile from "../Header/Profile";
 import BasicTable from "../testingComponents/BasicTable";
 import SearchUser from '../SearchUsers'
 import GetidOnHover from "../GetidOnHover";
+import AddProducts from '../addProducts/AddProducts'
 function Home() {
     return (
         <div>
@@ -18,7 +19,7 @@ function Home() {
             {/* <Dialogtest /> */}
             {/* <BasicTable/> */}
             {/* <SearchUser/> */}
-            
+            <AddProducts />
             <GetidOnHover/>
         </div>
     )
