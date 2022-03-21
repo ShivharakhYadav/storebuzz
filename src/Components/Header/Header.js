@@ -117,8 +117,10 @@ function Header() {
                                         component="div"
                                         sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
                                     >
-                                        LOGO
+                                    
                                     </Typography>
+                                    <img src='images/Logo/logo2.png' style={{width:90}}/>
+                                     <Typography variant="h4">StoreBuzz</Typography>
                                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                                         <IconButton
                                             size="large"
@@ -156,15 +158,6 @@ function Header() {
                                             ))}
                                         </Menu>
                                     </Box>
-                                    <Search>
-                                        <SearchIconWrapper>
-                                            <SearchIcon />
-                                        </SearchIconWrapper>
-                                        <StyledInputBase
-                                            placeholder="Search…"
-                                            inputProps={{ 'aria-label': 'search' }}
-                                        />
-                                    </Search>
                                     <Typography
                                         variant="h6"
                                         noWrap

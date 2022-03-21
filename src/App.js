@@ -4,7 +4,7 @@ import About from './Components/About/About'
 import { Route, Routes } from 'react-router-dom'
 import Profile from './Components/Header/Profile';
 import Registration from './Components/Registration/Registration';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Dialogtest from './Components/Dialogtest';
 import Login from './Components/Authentication/Login'
 function App() {

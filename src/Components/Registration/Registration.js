@@ -1,8 +1,10 @@
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import SendIcon from '@mui/icons-material/Send';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
+import { Container, Grid, Typography, Box, Icon } from '@mui/material'
 function Registration() {
     const [Name, setUname] = useState(null);
     const [Mobileno, setMobileno] = useState(null);
@@ -13,7 +15,7 @@ function Registration() {
     const history = useNavigate();
 
     function SendDate() {
-        let sendAbleData = ({ Name, Mobileno,Email, UserPassword });
+        let sendAbleData = ({ Name, Mobileno, Email, UserPassword });
         console.log(sendAbleData);
 
         let setLocalStorage = fetch("https://retoolapi.dev/SdvQQz/data",
@@ -34,18 +36,37 @@ function Registration() {
         history("/profile");
     }
 
-
+    
     return (
-        <div>
-            <h1>Register Here</h1>
-            <TextField id="standard-basic" label="name" variant="standard" onChange={(e) => setUname(e.target.value)} /><br /><br />
-            <TextField id="standard-basic" label="mobileno" variant="standard" onChange={(e) => setMobileno(e.target.value)} /><br /><br />
-            <TextField id="standard-basic" label="email" variant="standard" onChange={(e) => setEmail(e.target.value)} /><br /><br />
-            <TextField id="standard-basic" label="password" variant="standard" type="password" onChange={(e) => setUserpassword(e.target.value)} /><br /><br />
-            <Button variant="contained" onClick={SendDate} endIcon={<SendIcon />}>
-                Send
-            </Button>
-        </div>
+        <Container sx={{  margin: 10, }} >
+            <Grid container spacing={2} justifyContent={'center'}>
+                <Grid item marginBottom={3} >
+                    <img style={{ borderRadius: 10,height:'500px' }} src="images/Login/banner-sm-18.png" />
+                </Grid>
+                <Grid item>
+                    <Box>
+                        <Typography variant="h4" marginBottom={2}>Create Account</Typography>
+                        <TextField style={{width:'300px'}} id="standard-basic"  label="Name" variant="outlined" onChange={(e) => setUname(e.target.value)} /><br /><br />
+                        <TextField style={{width:'300px'}} id="standard-basic" label="Mobileno" variant="outlined" onChange={(e) => setMobileno(e.target.value)} /><br /><br />
+                        <TextField style={{width:'300px'}} id="standard-basic" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)} /><br /><br />
+                        <TextField style={{width:'300px'}} id="filled-password-input" label="Password" type="password" variant="outlined" onChange={(e) => setUserpassword(e.target.value)} /><br /><br />
+                        
+                            <Typography ><Icon><CheckCircleIcon/></Icon> Capital Letter</Typography>
+                            <Icon></Icon>
+                            <Typography endIcon={<SendIcon />}>&#10004; <Icon>add_Circle</Icon>Number</Typography>
+                            <Typography >&#10004; Small Letter</Typography>
+                            <Typography> &#10004;Special Character</Typography>
+                            
+                        <br/>
+                        <Button variant="contained" onClick={SendDate} endIcon={<SendIcon />}>
+                            Create
+                        </Button>
+                        
+                    </Box>
+                </Grid>
+
+            </Grid>
+        </Container>
     )
 }
 export default Registration;
