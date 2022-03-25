@@ -10,17 +10,18 @@ import BasicTable from "../testingComponents/BasicTable";
 import SearchUser from '../SearchUsers'
 import GetidOnHover from "../GetidOnHover";
 import AddProducts from '../addProducts/AddProducts'
+import DisplayProducts from "../Cards/DisplayProducts";
+import CardsItems from "../Cards/CardsItems";
 function Home() {
     return (
         <div>
             {/* <Header /> */}
             {/* <Profile/> */}
-            {/* <CardsItems/> */}
+            <CardsItems/>
             {/* <Dialogtest /> */}
             {/* <BasicTable/> */}
             {/* <SearchUser/> */}
-            <AddProducts />
-            <GetidOnHover/>
+            {/* <AddProducts /> */}
         </div>
     )
 }

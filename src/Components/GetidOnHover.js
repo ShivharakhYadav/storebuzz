@@ -8,9 +8,9 @@ function GetidOnHover() {
     function fetchData() {
         // setLoading(true)
         fetch("https://retoolapi.dev/2eG8ov/data").then((results) => {
-            console.log(results)
+            //console.log(results)
             results.json().then((res) => {
-                console.log("img response", res)
+                //console.log("img response", res)
                 setImageData(res);
                 // setImageState(0)
             })
@@ -25,27 +25,7 @@ function GetidOnHover() {
         fetchData();
     }, [])
 
-    const handleMouseOver = (imgid) => {
-        // console.log(imageData[1]);
-        setImageState(1)
-        console.log("mouse over", imgid)
-
-        // fetch(`https://retoolapi.dev/P2MyAB/data/${imgid}`).then((results) => {
-            
-        //     results.json().then((res) => {
-        //         console.log("img response", res)
-        //        console.log("id response",res)
-        //         // setImageState(0)
-        //     })
-
-        // })
-    }
-
-    const handleMouseOut = () => {
-        setImageState(2)
-        console.log("mouse out")
-        // setMouseChange(false);
-    }
+   
 
     return (
         <>

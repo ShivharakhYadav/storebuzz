@@ -8,8 +8,8 @@ function AddProducts() {
     const [productId, setProductId] = useState(new Date().getTime().toString());
     const [name, setName] = useState(null);
     const [price, setPrice] = useState(null)
-    const [rating,setRating]=useState(null);
-    const [quantity,setQuantity]=useState(null);
+    const [rating,setRating]=useState(4.5);
+    const [quantity,setQuantity]=useState(20);
     const [category,setCategory]=useState(null);
     const [weight,setWeight]=useState(null);
     const [image1,setFirstImage]=useState('');
@@ -50,8 +50,6 @@ function AddProducts() {
                         <Typography variant="h4" marginBottom={2}>Add Product</Typography>
                         <TextField style={{width:'300px'}} id="standard-basic" label="Name" variant="outlined" onChange={(e) => setName(e.target.value)} /><br /><br />
                         <TextField style={{width:'300px'}} id="standard-basic" label="Price" variant="outlined" onChange={(e) => setPrice(e.target.value)} /><br /><br />
-                        <TextField style={{width:'300px'}} id="standard-basic" label="Rating"  variant="outlined" onChange={(e) => setRating(e.target.value)} /><br /><br />
-                        <TextField style={{width:'300px'}} id="standard-basic" label="Quantity" variant="outlined" onChange={(e) => setQuantity(e.target.value)} /><br /><br />
                         <TextField style={{width:'300px'}} id="standard-basic" label="Category" variant="outlined" onChange={(e) => setCategory(e.target.value)} /><br /><br />
                         <TextField style={{width:'300px'}} id="standard-basic" label="Weight" variant="outlined" onChange={(e) => setWeight(e.target.value)} /><br /><br />
                         <TextField style={{width:'300px'}} id="standard-basic" label="image 1"  variant="outlined" onChange={(e) => setFirstImage(e.target.value)} /><br /><br />
