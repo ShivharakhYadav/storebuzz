@@ -51,11 +51,13 @@ function Registration() {
                         <TextField style={{width:'300px'}} id="standard-basic" label="Email" variant="outlined" onChange={(e) => setEmail(e.target.value)} /><br /><br />
                         <TextField style={{width:'300px'}} id="filled-password-input" label="Password" type="password" variant="outlined" onChange={(e) => setUserpassword(e.target.value)} /><br /><br />
                         
+                            <Box >
                             <Typography ><Icon><CheckCircleIcon/></Icon> Capital Letter</Typography>
                             <Icon></Icon>
                             <Typography endIcon={<SendIcon />}>&#10004; <Icon>add_Circle</Icon>Number</Typography>
                             <Typography >&#10004; Small Letter</Typography>
                             <Typography> &#10004;Special Character</Typography>
+                            </Box>
                             
                         <br/>
                         <Button variant="contained" onClick={SendDate} endIcon={<SendIcon />}>

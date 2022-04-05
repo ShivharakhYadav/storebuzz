@@ -11,12 +11,12 @@ import SearchUser from '../SearchUsers'
 import GetidOnHover from "../GetidOnHover";
 import AddProducts from '../addProducts/AddProducts'
 import DisplayProducts from "../Cards/DisplayProducts";
-import CardsItems from "../Cards/CardsItems";
 function Home() {
     return (
         <div>
             {/* <Header /> */}
             {/* <Profile/> */}
+            <Registration/>
             <CardsItems/>
             {/* <Dialogtest /> */}
             {/* <BasicTable/> */}
