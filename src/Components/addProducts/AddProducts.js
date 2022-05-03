@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import { Container, Grid, Typography, Box, Icon } from '@mui/material'
 function AddProducts() {
-    const [productId, setProductId] = useState(new Date().getTime().toString());
+
     const [name, setName] = useState(null);
     const [price, setPrice] = useState(null)
     const [rating,setRating]=useState(4.5);
@@ -21,8 +21,8 @@ function AddProducts() {
     
     
     function addProduct() {
-        setProductId(new Date().getTime().toString());
-        let addNewProduct = ({ productId, name,price,rating,quantity,category,weight,image1,image2});
+      
+        let addNewProduct = ({ productId:new Date().getTime().toString(), name,price,rating,quantity,category,weight,image1,image2});
        console.log(addNewProduct);
 
         fetch("https://retoolapi.dev/pDnXgS/data",
